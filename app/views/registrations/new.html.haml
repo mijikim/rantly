@@ -2,28 +2,38 @@
  %section.clearfix
   = form_for @user, url: new_registration_path, html: { class: "register-form" } do |f|
    %h3 Register
-   #username
-    = f.label :username
-    = f.text_field :username
-   #password
-    = f.label :password
-    = f.password_field :password
-   #first_name
-    = f.label :first_name, "First name"
-    = f.text_field :first_name
-   #last_name
-    = f.label :last_name, "Last name"
-    = f.text_field :last_name
+   .one_third
+    #password
+     = f.label :password
+     %br
+     = f.password_field :password
+    #last_name
+     = f.label :last_name, "Last name"
+     %br
+     = f.text_field :last_name
+   .one_third
+    #username
+     = f.label :username
+     %br
+     = f.text_field :username
+    #first_name
+     = f.label :first_name, "First name"
+     %br
+     = f.text_field :first_name
    #bio
     = f.label :bio
+    %br
     = f.text_area :bio
    #rant_frequency
     %p How often do you rant?
-    = f.radio_button :rant_frequency, "Daily"
-    = f.label :rant_frequency_daily, "Daily"
-    = f.radio_button :rant_frequency, "Weekly"
-    = f.label :rant_frequency_weekly, "Weekly"
-    = f.radio_button :rant_frequency, "Monthly?"
-    = f.label :rant_frequency_monthly, "Monthly"
-   %div
+    %article.two_ninth
+     = f.radio_button :rant_frequency, "Daily"
+     = f.label :rant_frequency_daily, "Daily"
+    %article.two_ninth
+     = f.radio_button :rant_frequency, "Weekly"
+     = f.label :rant_frequency_weekly, "Weekly"
+    %article.two_ninth
+     = f.radio_button :rant_frequency, "Monthly?"
+     = f.label :rant_frequency_monthly, "Monthly"
+   #register
     = f.submit "REGISTER", class: "register-button"

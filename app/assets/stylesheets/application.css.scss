@@ -17,7 +17,7 @@
 /* ----- =structure ----- */
 
 body {
-  background-color:  grey;
+  background-color: grey;
   font-family: avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -62,6 +62,14 @@ footer {
 
 .full_column {
   width: 940px;
+}
+
+.one_sixth {
+  width: 140px;
+}
+
+.two_ninth {
+  width: 180px;
 }
 
 article {
@@ -125,7 +133,6 @@ a {
   justify-content: flex-end;
 }
 
-
 .top-nav a {
   margin-left: 15px;
   color: white;
@@ -180,20 +187,56 @@ a {
 
 .register-form {
   background: white;
-  position: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 620px;
   h3 {
     font-weight: normal;
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 16px;
   }
-  #username {
-    float: left;
+  .one_third {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    display: inline-block;
+    position: relative;
+    input {
+      width: 91%;
+    }
   }
-  #password {
+  .one_third {
+    margin-left: 0;
     float: right;
+    input {
+      width: 91%;
+    }
   }
-  #first_name {
-    float: left;
+  #bio {
+    margin-left: 20px;
+    margin-bottom: 16px;
+    textarea {
+      width: 95.5%;
+      height: 100px;
+      resize: none;
+    }
   }
-  .register-button{
+  #rant_frequency {
+    p {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+    article {
+      text-align: center;
+      .one_sixth {
+        display: inline-block;
+      }
+    }
   }
-
+  #register {
+    text-align: center;
+    .register-button {
+      width: 80%;
+    }
+  }
 }
