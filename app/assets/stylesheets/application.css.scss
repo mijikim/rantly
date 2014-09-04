@@ -105,6 +105,7 @@ a {
   font-size: 25px;
   padding: 10px 20px;
   float: left;
+  border-right: green 1px solid;
 }
 
 .navbar-logged-out {
@@ -175,4 +176,24 @@ a {
     height: 150px;
     margin-right: 30px;
   }
+}
+
+.register-form {
+  background: white;
+  position: center;
+  h3 {
+    font-weight: normal;
+  }
+  #username {
+    float: left;
+  }
+  #password {
+    float: right;
+  }
+  #first_name {
+    float: left;
+  }
+  .register-button{
+  }
+
 }
