@@ -105,9 +105,9 @@ a {
 
 }
 
-.header-word-logo, .register-button, .login-link {
-  color: white
-}
+//.header-word-logo, .register-button, .login-link {
+//  color: white
+//}
 
 .header-word-logo {
   font-size: 25px;
@@ -116,8 +116,11 @@ a {
   border-right: green 1px solid;
 }
 
-.navbar-logged-out {
+.navbar-logged-out, .navbar-logged-in{
   padding: 10px;
+  a {
+    color: #ffffff;
+  }
 }
 
 .top-nav {
@@ -131,14 +134,18 @@ a {
 
   -webkit-flex-flow: row wrap;
   justify-content: flex-end;
+  a {
+    margin-left: 15px;
+    color: white;
+  }
 }
+//
+//.top-nav a {
+//  margin-left: 15px;
+//  color: white;
+//}
 
-.top-nav a {
-  margin-left: 15px;
-  color: white;
-}
-
-.register-button {
+.register-button, .logout-button {
   font-size: 20px;
   vertical-align: middle;
   border-radius: 3px;

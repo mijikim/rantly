@@ -7,6 +7,15 @@
   = csrf_meta_tags
 
 %body
+- if current_user
+  %header
+    .navbar-logged-in
+      %section.clearfix
+        = link_to "Rant.ly", root_path, class: "header-word-logo"
+        %ul.top-nav
+          %li
+            = link_to "LOGOUT", session_path, class: "logout-button", method: :delete
+- else
   %header
     .navbar-logged-out
       %section.clearfix
