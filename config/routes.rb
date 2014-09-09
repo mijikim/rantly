@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-  root 'dashboard#show'
+  root 'homepage#show'
+
+  get "dashboard" => 'dashboard#show'
 
   resources :registrations, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
 
-  get "login" => "sessions#new", as: :login
+  # get "login" => "sessions#new", as: :login
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

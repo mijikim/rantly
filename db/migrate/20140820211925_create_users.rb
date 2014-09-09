@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :bio
       t.string :rant_frequency
-
       t.timestamps
     end
   end

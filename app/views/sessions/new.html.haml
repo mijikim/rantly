@@ -1,0 +1,17 @@
+.wrapper
+ %section.clearfix
+  - if @user.errors.any?
+   .errors
+    - @user.errors.full_messages.each do |message|
+     %li
+      = message
+  = form_for @user, url: session_path, html: { class: "login-form" } do |f|
+   %h3 Login
+   .login-form-column#username
+    = f.label :username
+    = f.text_field :username
+   .login-form-column#password
+    = f.label :password
+    = f.password_field :password
+   #login
+    = f.submit "LOGIN", class: "login-button"
