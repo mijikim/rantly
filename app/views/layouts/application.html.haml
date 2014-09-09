@@ -14,7 +14,16 @@
         = link_to "Rant.ly", root_path, class: "header-word-logo"
         %ul.top-nav
           %li
+            = link_to "Dashboard", dashboard_path, class: "nav-list"
+          %li
+            = link_to "Following", session_path, class: "nav-list"
+          %li
+            = link_to "Favorites", session_path, class: "nav-list"
+          %li
+            = link_to "Search", session_path, class: "nav-list"
+          %li
             = link_to "LOGOUT", session_path, class: "logout-button", method: :delete
+  = yield
 - else
   %header
     .navbar-logged-out

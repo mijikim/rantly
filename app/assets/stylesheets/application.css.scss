@@ -102,12 +102,7 @@ article {
 a {
   text-decoration: none;
   background: transparent;
-
 }
-
-//.header-word-logo, .register-button, .login-link {
-//  color: white
-//}
 
 .header-word-logo {
   font-size: 25px;
@@ -123,9 +118,25 @@ a {
   }
 }
 
+.nav-list {
+  font-size: 20px;
+  float: left;
+  border-left: green 1px solid;
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.top-nav :nth-child(1) :nth-child(1) {
+  border: none;
+}
+
+.top-nav :nth-child(4) :nth-child(1) {
+  margin-right: 350px;
+}
+
+
 .top-nav {
   list-style: none;
-
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -139,11 +150,6 @@ a {
     color: white;
   }
 }
-//
-//.top-nav a {
-//  margin-left: 15px;
-//  color: white;
-//}
 
 .register-button, .logout-button {
   font-size: 20px;
