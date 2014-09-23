@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :registrations, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+  resource :profile
 
   # get "login" => "sessions#new", as: :login
 

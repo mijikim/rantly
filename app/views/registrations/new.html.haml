@@ -1,13 +1,11 @@
 .wrapper
  %section.clearfix
   - if flash[:notice]
-   .notice
-    = flash[:notice]
+   .notice #{flash[:notice]}
   - if @user.errors.any?
    .errors
     - @user.errors.full_messages.each do |message|
-     %li
-      = message
+     %li #{message}
   = form_for @user, url: registrations_path, html: { class: "register-form" } do |f|
    %h3 Register
    .register-form-column#first_name

@@ -3,8 +3,7 @@
   - if @user.errors.any?
    .errors
     - @user.errors.full_messages.each do |message|
-     %li
-      = message
+     %li #{message}
   = form_for @user, url: session_path, html: { class: "login-form" } do |f|
    %h3 Login
    .login-form-column#username

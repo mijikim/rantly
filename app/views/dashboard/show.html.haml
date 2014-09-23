@@ -1,2 +1,22 @@
-%p #{@user.first_name} #{@user.last_name}
+.dashboard-profile
+  %section.clearfix
+    = image_tag  "", class: "profile-thumbnail"
+    = link_to full_name(@user),
+    - if @user.errors.any?
+      .errors
+      - @user.errors.full_messages.each do |message|
+        %li #{message}
+    = form_for @user, url: session_path, html: { class: "login-form" } do |f|
+      %h3 Login
+      .login-form-column#username
+      = f.label :username
+      = f.text_field :username
+      .login-form-column#password
+      = f.label :password
+      = f.password_field :password
+      #login
+      = f.submit "LOGIN", class: "login-button"
 
+.dashboard-rants
+  %section.clearfix
+    %h3 "My Rants"
