@@ -1,7 +1,7 @@
 .dashboard-profile
   %section.clearfix
     = image_tag  "", class: "profile-thumbnail"
-    = link_to full_name(@user),
+    = link_to full_name(@user)
     - if @user.errors.any?
       .errors
       - @user.errors.full_messages.each do |message|
