@@ -4,3 +4,4 @@ Welcome to the next big thing. We're going to take on Twitter. Now-a-days everyo
 
 Help use raise our Series A and get our prototype out. We only have a week to do it! Good luck!
 
+heroku URL: http://frozen-atoll-7546.herokuapp.com/
