@@ -1,21 +1,29 @@
 .dashboard-profile
   %section.clearfix
-    = image_tag  "", class: "profile-thumbnail"
-    = link_to full_name(@user), edit_profile_path
-    - if @user.errors.any?
+    .profile
+      -#= image_tag  , class: "profile-thumbnail"
+      = link_to full_name(@user), edit_profile_path, id: "profile"
+    - if @rant.errors.any?
       .errors
-      - @user.errors.full_messages.each do |message|
-        %li #{message}
+        - @rant.errors.full_messages.each do |message|
+          %li #{message}
     = form_for @rant, html: { class: "new-rant-form" } do |f|
-      .rants-form-column#category
-      = f.label :category, "A Rant About"
-      = f.text_field :category
-      .rants-form-column#rant
-      = f.label :rant
-      = f.text_field :rant
+      .category
+        = f.label :category, "A rant about:"
+        = f.text_field :category
+      .rant
+        = f.label :rant, "Rant:"
+        = f.text_area :rant
       #login
-      = f.submit "RANT", class: "create-rant-button"
+        = f.submit "RANT", class: "create-rant-button"
 
 .dashboard-rants
   %section.clearfix
-    %h3 "My Rants"
+    .latest_rants
+      %h1 "Latest Rants"
+    .my_rants
+      %h1 "My Rants"
+      - if @users_rants != nil
+        - @users_rants.each do |rant|
+          %ul #{rant.user_firstname} #{rant.rant}
+          = link_to "Delete", rant_path(rant.id), id: "delete", method: :delete

@@ -2,7 +2,8 @@ class CreateRants < ActiveRecord::Migration
   def change
     create_table :rants do |t|
       t.string :category
-      t.string :rant
+      t.text :rant
+      t.integer :user_id
     end
   end
 end

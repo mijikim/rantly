@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20140930023831) do
   enable_extension "plpgsql"
 
   create_table "rants", force: true do |t|
-    t.string "category"
-    t.string "rant"
+    t.string  "category"
+    t.text    "rant"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -26,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140930023831) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "rant_frequency"
     t.datetime "created_at"
     t.datetime "updated_at"
