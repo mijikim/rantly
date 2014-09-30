@@ -1,21 +1,20 @@
 .dashboard-profile
   %section.clearfix
     = image_tag  "", class: "profile-thumbnail"
-    = link_to full_name(@user)
+    = link_to full_name(@user), edit_profile_path
     - if @user.errors.any?
       .errors
       - @user.errors.full_messages.each do |message|
         %li #{message}
-    = form_for @user, url: session_path, html: { class: "login-form" } do |f|
-      %h3 Login
-      .login-form-column#username
-      = f.label :username
-      = f.text_field :username
-      .login-form-column#password
-      = f.label :password
-      = f.password_field :password
+    = form_for @rant, html: { class: "new-rant-form" } do |f|
+      .rants-form-column#category
+      = f.label :category, "A Rant About"
+      = f.text_field :category
+      .rants-form-column#rant
+      = f.label :rant
+      = f.text_field :rant
       #login
-      = f.submit "LOGIN", class: "login-button"
+      = f.submit "RANT", class: "create-rant-button"
 
 .dashboard-rants
   %section.clearfix

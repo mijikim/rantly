@@ -6,8 +6,8 @@
    .errors
     - @user.errors.full_messages.each do |message|
      %li #{message}
-  = form_for @user, url: registrations_path, html: { class: "register-form" } do |f|
-   %h3 Register
+  = form_for @user, url: profile_path, html: { class: "register-form" } do |f|
+   %h3 Edit Profile
    .register-form-column.bottom#username
     = f.label :username
     = f.text_field :username
@@ -35,4 +35,4 @@
      = f.radio_button :rant_frequency, "Monthly?"
      = f.label :rant_frequency_monthly, "Monthly"
    #register
-    = f.submit "REGISTER", class: "register-button"
+    = f.submit "EDIT", class: "edit-button"

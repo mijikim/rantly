@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
   root 'homepage#show'
-
   get "dashboard" => 'dashboard#show'
 
+  resources :rants
   resources :registrations, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resource :profile
+  resource :profile, only: [:edit, :update]
+
+  # get "profiles/:name" => 'profiles#show'
+
 
   # get "login" => "sessions#new", as: :login
 

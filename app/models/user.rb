@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :rants
 
   validates_presence_of :username, :first_name, :last_name, :bio, :rant_frequency
   validates_uniqueness_of :username

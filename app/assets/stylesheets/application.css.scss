@@ -155,7 +155,7 @@ a {
   }
 }
 
-.register-button, .logout-button {
+.logout-button {
   font-size: 20px;
   vertical-align: middle;
   border-radius: 3px;
@@ -211,6 +211,18 @@ a {
   }
 }
 
+.register-button, .login-button, .create-rant-button, .edit-button {
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid #d5d5d5;
+  background-color: #37731e;
+  line-height: 20px;
+  padding: 10px 35px;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
 .register-form {
   background: white;
   width: 66.66%;
@@ -250,9 +262,6 @@ a {
   }
   #register {
     text-align: center;
-    .register-button {
-      width: 100%;
-    }
   }
 }
 
@@ -304,17 +313,6 @@ a {
   #login {
     display: inline-block;
     width: 100%;
-    .login-button {
-      font-size: 20px;
-      border-radius: 3px;
-      border: 1px solid #d5d5d5;
-      background-color: #37731e;
-      line-height: 20px;
-      padding: 10px 35px;
-      text-decoration: none;
-      width: 100%;
-      margin-top: 10px;
-    }
   }
 }
 
