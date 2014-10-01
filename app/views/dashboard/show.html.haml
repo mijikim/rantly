@@ -21,6 +21,9 @@
   %section.clearfix
     .latest_rants
       %h1 "Latest Rants"
+      - if @all_rants != nil
+        - @all_rants.each do |rant|
+          %ul #{rant.user_firstname} #{rant.rant}
     .my_rants
       %h1 "My Rants"
       - if @users_rants != nil

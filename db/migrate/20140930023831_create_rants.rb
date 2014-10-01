@@ -4,6 +4,8 @@ class CreateRants < ActiveRecord::Migration
       t.string :category
       t.text :rant
       t.integer :user_id
+      t.timestamps
+
     end
   end
 end
