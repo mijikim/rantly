@@ -11,10 +11,10 @@
     %header
       .navbar-logged-in
         %section.clearfix
-          = link_to "Rant.ly", dashboard_path, class: "header-word-logo"
+          = link_to "Rant.ly", dashboards_path, class: "header-word-logo"
           %ul.top-nav
             %li
-              = link_to "Dashboard", dashboard_path, class: "nav-list"
+              = link_to "Dashboard", dashboards_path, class: "nav-list"
             %li
               = link_to "Following", session_path, class: "nav-list"
             %li
@@ -33,6 +33,6 @@
             %li
               = link_to "Login", new_session_path, class: "login-link"
             %li
-              = link_to "JOIN", new_registration_path, class: "register-button"
+              = link_to "JOIN", new_user_path, class: "register-button"
     = yield
 

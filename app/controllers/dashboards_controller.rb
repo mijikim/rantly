@@ -1,10 +1,9 @@
-class DashboardController < ApplicationController
+class DashboardsController < ApplicationController
   before_action :ensure_authenticated_user
 
   def show
     @user = current_user
     @rant = Rant.new
-    @users_rants = Rant.where(user_id: @user.id)
     @all_rants = Rant.order(created_at: :desc)
   end
 

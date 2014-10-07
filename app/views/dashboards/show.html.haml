@@ -2,12 +2,12 @@
   %section.clearfix
     .profile
       -#= image_tag  , class: "profile-thumbnail"
-      = link_to full_name(@user), edit_profile_path, id: "profile"
+      = link_to full_name(@user), edit_user_path(@user), id: "profile"
     - if @rant.errors.any?
       .errors
         - @rant.errors.full_messages.each do |message|
           %li #{message}
-    = form_for @rant, html: { class: "new-rant-form" } do |f|
+    = form_for [@user, @rant], html: { class: "new-rant-form" } do |f|
       .category
         = f.label :category, "A rant about:"
         = f.text_field :category
@@ -27,7 +27,7 @@
           = link_to "Follow"
     .my_rants
       %h1 "My Rants"
-      - if @users_rants != nil
-        - @users_rants.each do |rant|
+      - if @user.rants != nil
+        - @user.rants.each do |rant|
           %ul #{rant.user_firstname} #{rant.rant}
-          = link_to "Delete", rant_path(rant.id), id: "delete", method: :delete
+          = link_to "Delete", user_rant_path(@user.id, rant.id), id: "delete", method: :delete

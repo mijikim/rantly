@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to dashboard_path
+      redirect_to dashboards_path
     elsif params[:user][:username] == "" || params[:user][:password] == ""
       @user = User.new(username: params[:user][:username])
       @user.errors[:base] << "Username / Password Required"

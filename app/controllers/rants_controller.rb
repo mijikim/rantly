@@ -9,7 +9,7 @@ class RantsController < ApplicationController
     else
       @users_rants = Rant.where(user_id: @user.id)
       @all_rants = Rant.order(created_at: :desc)
-      render 'dashboard/show'
+      render 'dashboards/show'
     end
   end
 
