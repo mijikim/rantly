@@ -24,6 +24,7 @@
       - if @all_rants != nil
         - @all_rants.each do |rant|
           %ul #{rant.user_firstname} #{rant.rant}
+          = link_to "Follow"
     .my_rants
       %h1 "My Rants"
       - if @users_rants != nil
