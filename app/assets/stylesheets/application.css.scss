@@ -323,6 +323,7 @@ a {
 }
 
 .dashboard-profile {
+  position: fixed;
   width: 25%;
   display: inline-block;
   color: #e8e8e8;
@@ -361,7 +362,7 @@ a {
   background-color: #ffffff;
   display: inline-block;
   float: right;
-  height: 100%;
+//  height: 100%;
   h1 {
     text-align: center;
   }

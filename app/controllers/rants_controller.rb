@@ -7,6 +7,8 @@ class RantsController < ApplicationController
     if @rant.save
       redirect_to dashboard_path
     else
+      @users_rants = Rant.where(user_id: @user.id)
+      @all_rants = Rant.order(created_at: :desc)
       render 'dashboard/show'
     end
   end
