@@ -5,7 +5,7 @@ class RantsController < ApplicationController
     @rant = Rant.new(allowed_params.merge(user_id: @user.id))
 
     if @rant.save
-      redirect_to dashboard_path
+      redirect_to dashboards_path
     else
       @users_rants = Rant.where(user_id: @user.id)
       @all_rants = Rant.order(created_at: :desc)
@@ -16,7 +16,7 @@ class RantsController < ApplicationController
   def destroy
     @rant = Rant.find_by(id: params[:id])
     @rant.destroy
-    redirect_to dashboard_path
+    redirect_to dashboards_path
   end
 
   private

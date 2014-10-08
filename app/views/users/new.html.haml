@@ -34,5 +34,8 @@
     .rant_column
      = f.radio_button :rant_frequency, "Monthly?"
      = f.label :rant_frequency_monthly, "Monthly"
+   #photo
+    = f.label :avatar, "Avatar"
+    = f.file_field :avatar
    #register
     = f.submit "REGISTER", class: "register-button"

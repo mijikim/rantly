@@ -5,7 +5,7 @@ class Rant < ActiveRecord::Base
   validates :rant, length: { minimum: 140 }
   validates :category, length:  { maximum: 50}
 
-  def user_firstname
+  def user_first_name
     user.first_name.capitalize
   end
 

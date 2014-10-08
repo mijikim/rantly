@@ -1,7 +1,7 @@
 .dashboard-profile
   %section.clearfix
     .profile
-      -#= image_tag  , class: "profile-thumbnail"
+      = image_tag @user.avatar.url(:thumb), class: "profile-thumbnail"
       = link_to full_name(@user), edit_user_path(@user), id: "profile"
     - if @rant.errors.any?
       .errors
@@ -20,14 +20,25 @@
 .dashboard-rants
   %section.clearfix
     .latest_rants
-      %h1 "Latest Rants"
+      %h1 Latest Rants
+      %hr
       - if @all_rants != nil
         - @all_rants.each do |rant|
-          %ul #{rant.user_firstname} #{rant.rant}
-          = link_to "Follow"
+          .rants
+            #profile
+              %p #{rant.user.first_name}
+              = image_tag rant.user.avatar.url(:thumb)
+              = link_to "Follow", id: "follow"
+            %ul #{rant.rant}
+            = link_to "Favorite", id: "favorite"
+            %hr#rants
     .my_rants
-      %h1 "My Rants"
+      %h1 My Rants
       - if @user.rants != nil
         - @user.rants.each do |rant|
-          %ul #{rant.user_firstname} #{rant.rant}
-          = link_to "Delete", user_rant_path(@user.id, rant.id), id: "delete", method: :delete
+          .rants
+            #profile_one
+              %p #{rant.user.first_name}
+              = image_tag @user.avatar.url(:thumb), class: "profile-thumbnail"
+            %ul #{rant.rant}
+            = link_to "Delete", user_rant_path(@user.id, rant.id), id: "delete", method: :delete
