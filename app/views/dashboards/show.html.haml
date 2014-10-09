@@ -29,7 +29,7 @@
               %p #{rant.user.first_name}
               = image_tag rant.user.avatar.url(:thumb)
               = follow_link(rant.user.id)
-            %ul #{rant.rant}
+            = link_to truncate(rant.rant), user_rant_path(rant.user.id, rant.id), id: "rant"
             = link_to "Favorite", id: "favorite"
             %hr#rants
     .my_rants
