@@ -28,7 +28,7 @@
             #profile
               %p #{rant.user.first_name}
               = image_tag rant.user.avatar.url(:thumb)
-              = link_to "Follow", id: "follow"
+              = follow_link(rant.user.id)
             %ul #{rant.rant}
             = link_to "Favorite", id: "favorite"
             %hr#rants

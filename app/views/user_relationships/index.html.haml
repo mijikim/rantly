@@ -1,0 +1,29 @@
+.dashboard-profile
+  %section.clearfix
+    .profile
+      = image_tag @user.avatar.url(:thumb), class: "profile-thumbnail"
+      = link_to full_name(@user), edit_user_path(@user), id: "profile"
+    - if @rant.errors.any?
+      .errors
+        - @rant.errors.full_messages.each do |message|
+          %li #{message}
+    = form_for [@user, @rant], html: { class: "new-rant-form" } do |f|
+      .category
+        = f.label :category, "A rant about:"
+        = f.text_field :category
+      .rant
+        = f.label :rant, "Rant:"
+        = f.text_area :rant
+      #login
+        = f.submit "RANT", class: "create-rant-button"
+
+.followed-users
+  %section.clearfix
+    %h1 Following
+    %hr
+      - if @followed_users != nil
+        - @followed_users.each do |followed_user|
+          .user
+            %p #{full_name(followed_user)}
+            = image_tag followed_user.avatar.url(:medium)
+            = follow_link(followed_user)

@@ -329,6 +329,7 @@ a {
   background-color: #ffffff;
   display: inline-block;
   float: right;
+  min-height: 100%;
   h1 {
     text-align: center;
   }
@@ -360,7 +361,6 @@ a {
   }
   hr {
     width: 95%;
-    display: block;
   }
   #rants {
     width: 30%;
@@ -371,4 +371,30 @@ a {
     text-align: right;
     text-decoration: underline;
   }
+}
+
+.followed-users {
+  position: relative;
+  bottom: 0;
+  width: 75%;
+  background-color: #ffffff;
+  display: inline-block;
+  float: right;
+  min-height: 100%;
+  h1 {
+    text-align: center;
+  }
+  hr {
+    width: 95%;
+  }
+  .user {
+    display: inline-block;
+    margin: 20px 48px;
+    p, a {
+      text-align: center;
+      font-size: 20px;
+      display: block;
+    }
+  }
+
 }

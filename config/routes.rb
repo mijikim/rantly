@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resources :users do
+    post 'follows' => 'user_relationships#create'
+    get 'follows' => 'user_relationships#index'
+    delete 'follow' => 'user_relationships#destroy'
     resources :rants
   end
 
