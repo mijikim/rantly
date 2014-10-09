@@ -26,4 +26,4 @@
           .user
             %p #{full_name(followed_user)}
             = image_tag followed_user.avatar.url(:medium)
-            = follow_link(followed_user)
+            = follow_link(followed_user.id)
