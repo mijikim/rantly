@@ -22,22 +22,4 @@
               = link_to "Search", session_path, class: "nav-list"
             %li
               = link_to "LOGOUT", session_path, class: "logout-button", method: :delete
-    .dashboard-profile
-      %section.clearfix
-        .profile
-          = image_tag current_user.avatar.url(:thumb), class: "profile-thumbnail"
-          = link_to full_name(current_user), edit_user_path(current_user.id), id: "profile"
-        - if @new_rant.errors.any?
-          .errors
-            - @new_rant.errors.full_messages.each do |message|
-              %li #{message}
-        = form_for [current_user, @new_rant], html: { class: "new-rant-form" } do |f|
-          .category
-            = f.label :category, "A rant about:"
-            = f.text_field :category
-          .rant
-            = f.label :rant, "Rant:"
-            = f.text_area :rant
-          #login
-            = f.submit "RANT", class: "create-rant-button"
     = yield

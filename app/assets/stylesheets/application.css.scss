@@ -16,13 +16,12 @@
 
 /* ----- =structure ----- */
 
-html {
+html, body {
   height: 100%;
 }
 
 body {
   position: relative;
-  height: 100%;
   background-color: grey;
   font-family: avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -31,19 +30,10 @@ header {
   background-color: #333333;
 }
 
-#content {
-  background-color: #fff; /* White */
-}
-
-footer {
-  background-color: #c5c5c5; /* Dark Grey */
-}
-
 .wrapper {
   margin: auto;
   width: 68%;
 }
-
 
 /* clearfix */
 .clearfix:before,
@@ -61,10 +51,6 @@ footer {
   *zoom: 1;
 }
 
-#content img {
-  padding-top: 20px;
-}
-
 a {
   text-decoration: none;
   background: transparent;
@@ -79,9 +65,8 @@ a {
 
 .navbar-logged-out, .navbar-logged-in {
   padding: 10px;
-  //  position: fixed;
   a {
-    color: #ffffff;
+    color: white;
   }
 }
 
@@ -113,7 +98,6 @@ a {
   justify-content: flex-end;
   a {
     margin-left: 15px;
-    color: white;
   }
 }
 
@@ -229,8 +213,6 @@ a {
 
 .register-form:after {
   content: "";
-  //  display: table;
-  //  clear: both;
 }
 
 .notice {
@@ -280,8 +262,10 @@ a {
 
 .login-form:after {
   content: "";
-  //  display: table;
-  //  clear: both;
+}
+
+.new-rant-form:before {
+  content: " ";
 }
 
 .dashboard-profile {
@@ -323,8 +307,6 @@ a {
 }
 
 .dashboard-rants {
-  position: relative;
-  bottom: 0;
   width: 75%;
   background-color: #ffffff;
   display: inline-block;
@@ -376,8 +358,6 @@ a {
 }
 
 .followed-users {
-  position: relative;
-  bottom: 0;
   width: 75%;
   background-color: #ffffff;
   display: inline-block;
@@ -391,12 +371,42 @@ a {
   }
   .user {
     display: inline-block;
-    margin: 20px 48px;
-    p, a {
+    width: 33%;
+    img, p, a {
       text-align: center;
       font-size: 20px;
       display: block;
+      margin: 20px auto;
     }
   }
 
 }
+
+.single_rant {
+  width: 75%;
+  background-color: #ffffff;
+  display: inline-block;
+  float: right;
+  min-height: 100%;
+  h1 {
+    text-align: center;
+  }
+  hr {
+    width: 95%;
+  }
+  a {
+    text-align: right;
+  }
+  .single_rant_body {
+    width: 90%;
+    margin: auto;
+    img {
+      float: left;
+      padding: 1rem;
+    }
+    #name {
+      font-size: 20px;
+    }
+  }
+}
+

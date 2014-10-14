@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   skip_before_filter :ensure_authenticated_user
+  layout "homepage", only: [:new, :create]
+  layout "user_edit", only: [:edit, :update]
 
   def new
     @user = User.new
@@ -17,19 +19,21 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
-    if @user.update(allowed_params)
+
+    if current_user.update(allowed_params)
       flash[:notice] = "Profile was updated successfully!"
-      redirect_to edit_user_path(@user)
+      redirect_to edit_user_path(current_user)
     else
       render :edit
     end
   end
 
+  def show
+    @new_rant = Rant.new
+  end
 
   private
 

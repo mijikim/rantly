@@ -2,11 +2,11 @@
  %section.clearfix
   - if flash[:notice]
    .notice #{flash[:notice]}
-  - if @user.errors.any?
+  - if current_user.errors.any?
    .errors
-    - @user.errors.full_messages.each do |message|
+    - current_user.errors.full_messages.each do |message|
      %li #{message}
-  = form_for @user, url: user_path, html: { multipart: true, class: "register-form" } do |f|
+  = form_for current_user, url: user_path, html: { multipart: true, class: "register-form" } do |f|
    %h3 Edit Profile
    .register-form-column.bottom#username
     = f.label :username

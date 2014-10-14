@@ -1,0 +1,10 @@
+.single_rant
+  %section.clearfix
+    %h1 #{@rant.category.titleize}
+    = link_to "Favorite"
+    %hr
+    .single_rant_body
+      = image_tag @rant.user.avatar.url(:medium)
+      %p#name by #{@rant.user.first_name}
+      %p #{@rant.rant}
+

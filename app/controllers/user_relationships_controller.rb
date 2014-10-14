@@ -2,8 +2,7 @@ class UserRelationshipsController < ApplicationController
 
   def index
     @followed_users = user.followed_users
-    @user = user
-    @rant = Rant.new
+    @new_rant = Rant.new
   end
 
   def create
@@ -19,7 +18,7 @@ class UserRelationshipsController < ApplicationController
   private
 
   def user
-    @_user ||= User.find_by(id: params[:user_id])
+    User.find_by(id: params[:user_id])
   end
 
 end
