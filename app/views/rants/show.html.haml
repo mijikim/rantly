@@ -5,6 +5,6 @@
     %hr
     .single_rant_body
       = image_tag @rant.user.avatar.url(:medium)
-      %p#name by #{@rant.user.first_name}
+      = link_to "by #{@rant.user.first_name}", user_path(@rant.user_id), id: "name"
       %p #{@rant.rant}
 

@@ -8,4 +8,12 @@ module RantHelper
     end
   end
 
+  # def favorite_rant(user_id, rant_id)
+  #   if current_user.following?(rant_id)
+  #     link_to "Unfollow", user_follow_path(user_id), id: "favorite", method: :delete
+  #   else
+  #     link_to "Follow", user_follows_path(user_id), id: "favorite", method: :post
+  #   end
+  # end
+
 end

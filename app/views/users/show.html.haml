@@ -1,0 +1,15 @@
+.single_user
+  %section.clearfix
+    %h1 #{full_name(@user)}
+    = follow_link(@user.id)
+    %hr
+    .single_user_body
+      = image_tag @user.avatar.url(:medium)
+      %p#rant_frequency #{@user.rant_frequency.delete("?")} Ranter
+      %p#bio #{@user.bio}
+    .single_user_rants
+      - if @user.rants != nil
+        - @user.rants.each do |rant|
+          %p#title #{rant.category.titleize}
+          %p #{rant.rant}
+          = link_to "Favorite", id: "favorite"

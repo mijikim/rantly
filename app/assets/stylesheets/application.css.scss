@@ -101,16 +101,20 @@ a {
   }
 }
 
-.logout-button {
+.button {
   font-size: 20px;
-  vertical-align: middle;
   border-radius: 3px;
   border: 1px solid #d5d5d5;
   background-color: #37731e;
   line-height: 20px;
   padding: 10px 35px;
-  margin: 6px 5px 6px 0;
   text-decoration: none;
+}
+
+.logout-button {
+  @extend .button;
+  vertical-align: middle;
+  margin: 6px 5px 6px 0;
 }
 
 .login-link {
@@ -158,27 +162,25 @@ a {
 }
 
 .register-button, .login-button, .create-rant-button, .edit-button {
-  font-size: 20px;
-  border-radius: 3px;
-  border: 1px solid #d5d5d5;
-  background-color: #37731e;
-  line-height: 20px;
-  padding: 10px 35px;
-  text-decoration: none;
+  @extend .button;
   width: 100%;
   margin-top: 10px;
 }
 
-.register-form {
+.form {
   background: white;
   width: 66.66%;
   padding: 1em;
   margin: 1rem auto;
-  label {
-    display: block;
-  }
   h3 {
     font-weight: normal;
+  }
+}
+
+.register-form {
+  @extend .form;
+  label {
+    display: block;
   }
   .register-form-column {
     display: inline-block;
@@ -212,7 +214,7 @@ a {
 }
 
 .register-form:after {
-  content: "";
+  content: " ";
 }
 
 .notice {
@@ -238,12 +240,8 @@ a {
 }
 
 .login-form {
-  background: white;
-  width: 66.66%;
-  padding: 1em;
-  margin: 1rem auto;
+  @extend .form;
   h3 {
-    font-weight: normal;
     margin-bottom: 16px;
   }
   .login-form-column {
@@ -261,7 +259,7 @@ a {
 }
 
 .login-form:after {
-  content: "";
+  content: " ";
 }
 
 .new-rant-form:before {
@@ -306,7 +304,7 @@ a {
   }
 }
 
-.dashboard-rants {
+.content {
   width: 75%;
   background-color: #ffffff;
   display: inline-block;
@@ -315,6 +313,18 @@ a {
   h1 {
     text-align: center;
   }
+}
+
+#links {
+  padding-right: 4rem;
+  display: block;
+  text-align: right;
+  text-decoration: underline;
+}
+
+
+.dashboard-rants {
+  @extend .content;
   #rant, ul {
     display: inline-block;
     width: 80%;
@@ -350,22 +360,12 @@ a {
     width: 30%;
   }
   #delete, #favorite {
-    padding-right: 4rem;
-    display: block;
-    text-align: right;
-    text-decoration: underline;
+  @extend #links;
   }
 }
 
 .followed-users {
-  width: 75%;
-  background-color: #ffffff;
-  display: inline-block;
-  float: right;
-  min-height: 100%;
-  h1 {
-    text-align: center;
-  }
+  @extend .content;
   hr {
     width: 95%;
   }
@@ -383,30 +383,64 @@ a {
 }
 
 .single_rant {
-  width: 75%;
-  background-color: #ffffff;
-  display: inline-block;
-  float: right;
-  min-height: 100%;
-  h1 {
-    text-align: center;
-  }
+  @extend .content;
   hr {
     width: 95%;
   }
-  a {
-    text-align: right;
-  }
   .single_rant_body {
-    width: 90%;
+    width: 95%;
     margin: auto;
     img {
       float: left;
       padding: 1rem;
     }
+    p {
+      padding: 1rem;
+      margin: 0;
+    }
     #name {
-      font-size: 20px;
+      font-size: 30px;
+      display: block;
+      margin-top: 20px;
     }
   }
 }
 
+.single_user {
+  @extend .content;
+  hr {
+    width: 95%;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  img, p {
+    margin: 1rem;
+  }
+  #follow {
+    @extend #links;
+  }
+  .single_user_body {
+    width: 95%;
+    margin: auto;
+    #rant_frequency {
+      display: inline-block;
+      font-size: 30px;
+      width: 50%;
+      text-align: center;
+    }
+    img {
+      vertical-align: middle;
+    }
+  }
+  .single_user_rants {
+    width: 95%;
+    margin: auto;
+    #title {
+      font-size: 20px;
+    }
+    #favorite {
+      @extend #links;
+    }
+  }
+}

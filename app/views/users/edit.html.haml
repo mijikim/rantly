@@ -6,7 +6,7 @@
    .errors
     - current_user.errors.full_messages.each do |message|
      %li #{message}
-  = form_for current_user, url: user_path, html: { multipart: true, class: "register-form" } do |f|
+  = form_for current_user, url: user_path, html: { class: "register-form" } do |f|
    %h3 Edit Profile
    .register-form-column.bottom#username
     = f.label :username

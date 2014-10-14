@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   skip_before_filter :ensure_authenticated_user
-  layout "homepage", only: [:new, :create]
   layout "user_edit", only: [:edit, :update]
 
   def new
     @user = User.new
+    render layout: 'layouts/homepage'
   end
 
   def create
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have successfully registered"
       redirect_to new_user_path
     else
-      render :new
+      render :new, layout: 'layouts/homepage'
     end
   end
 
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: params[:id])
     @new_rant = Rant.new
   end
 

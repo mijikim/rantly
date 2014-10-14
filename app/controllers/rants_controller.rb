@@ -1,7 +1,7 @@
 class RantsController < ApplicationController
 
   def create
-    @new_rant = Rant.new(allowed_params.merge(user_id: @user.id))
+    @new_rant = Rant.new(allowed_params.merge(user_id: params[:user_id]))
 
     if @new_rant.save
       redirect_to dashboards_path

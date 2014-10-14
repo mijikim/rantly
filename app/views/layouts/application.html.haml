@@ -37,7 +37,7 @@
             = f.text_field :category
           .rant
             = f.label :rant, "Rant:"
-            = f.text_area :rant
+            = f.text_area :rant, placeholder: "Rant about something or at someone..."
           #login
             = f.submit "RANT", class: "create-rant-button"
     = yield
