@@ -17,7 +17,7 @@
             %li
               = link_to "Following", user_follows_path(current_user), class: "nav-list"
             %li
-              = link_to "Favorites", session_path, class: "nav-list"
+              = link_to "Favorites", user_favorites_path(current_user), class: "nav-list"
             %li
               = link_to "Search", session_path, class: "nav-list"
             %li

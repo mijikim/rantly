@@ -7,11 +7,11 @@
         - @all_rants.each do |rant|
           .rants
             #profile
-              = link_to rant.user.first_name, user_path(rant.user.id)
+              = link_to rant.user_first_name, user_path(rant.user.id)
               = image_tag rant.user.avatar.url(:thumb)
               = follow_link(rant.user.id)
             = link_to truncate(rant.rant), user_rant_path(rant.user.id, rant.id), id: "rant"
-            = link_to "Favorite", id: "favorite"
+            = favorite_rant_link(current_user.id, rant.id)
             %hr#rants
     .my_rants
       %h1 My Rants

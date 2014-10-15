@@ -1,10 +1,9 @@
 .single_rant
   %section.clearfix
     %h1 #{@rant.category.titleize}
-    = link_to "Favorite"
+    = favorite_rant_link(current_user.id, @rant.id)
     %hr
     .single_rant_body
       = image_tag @rant.user.avatar.url(:medium)
       = link_to "by #{@rant.user.first_name}", user_path(@rant.user_id), id: "name"
       %p #{@rant.rant}
-

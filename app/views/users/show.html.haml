@@ -8,8 +8,8 @@
       %p#rant_frequency #{@user.rant_frequency.delete("?")} Ranter
       %p#bio #{@user.bio}
     .single_user_rants
-      - if @user.rants != nil
-        - @user.rants.each do |rant|
+      - if @ordered_rants != nil
+        - @ordered_rants.each do |rant|
           %p#title #{rant.category.titleize}
           %p #{rant.rant}
-          = link_to "Favorite", id: "favorite"
+          = favorite_rant_link(current_user.id, rant.id)

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :rants
+  has_many :rants, dependent: :destroy
+  has_many :favorited_rants, dependent: :destroy
+
   has_many :followed_user_relationships, foreign_key: :follower_id, class_name: 'UserRelationship'
   has_many :followed_users, through: :followed_user_relationships
 
@@ -29,6 +31,20 @@ class User < ActiveRecord::Base
 
   def following?(user_id)
     followed_users.ids.include?(user_id)
+  end
+
+  def all_favorite_rants
+    favorited_rants.order(created_at: :desc).pluck(:rant_id).map { |id| Rant.find(id) }
+  end
+
+  Rant.order(created_at: :desc)
+
+  def favorite_rant(rant_id)
+    favorited_rants.build(rant_id: rant_id).save
+  end
+
+  def favorited?(rant_id)
+    favorited_rants.pluck(:rant_id).include?(rant_id)
   end
 
 end

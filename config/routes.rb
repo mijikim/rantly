@@ -9,9 +9,12 @@ Rails.application.routes.draw do
     post 'follows' => 'user_relationships#create'
     get 'follows' => 'user_relationships#index'
     delete 'follow' => 'user_relationships#destroy'
-    resources :rants
+    get 'favorites' => 'favorited_rants#index'
+    resources :rants do
+    post 'favorites' => 'favorited_rants#create'
+    delete 'favorite' => 'favorited_rants#destroy'
   end
-
+end
   # get "profiles/:name" => 'profiles#show'
 
 

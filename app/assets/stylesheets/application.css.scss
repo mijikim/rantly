@@ -322,6 +322,9 @@ a {
   text-decoration: underline;
 }
 
+#delete, #favorite {
+  @extend #links;
+}
 
 .dashboard-rants {
   @extend .content;
@@ -358,9 +361,6 @@ a {
   }
   #rants {
     width: 30%;
-  }
-  #delete, #favorite {
-  @extend #links;
   }
 }
 
@@ -439,8 +439,9 @@ a {
     #title {
       font-size: 20px;
     }
-    #favorite {
-      @extend #links;
-    }
   }
+}
+
+.favorited-rants {
+  @extend .dashboard-rants;
 }

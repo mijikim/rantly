@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009013257) do
+ActiveRecord::Schema.define(version: 20141014214956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorited_rants", force: true do |t|
+    t.integer  "rant_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorited_rants", ["rant_id"], name: "index_favorited_rants_on_rant_id", using: :btree
+  add_index "favorited_rants", ["user_id"], name: "index_favorited_rants_on_user_id", using: :btree
 
   create_table "rants", force: true do |t|
     t.string   "category"
@@ -22,6 +32,7 @@ ActiveRecord::Schema.define(version: 20141009013257) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "favorited",  default: 0
   end
 
   create_table "user_relationships", force: true do |t|
