@@ -17,11 +17,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  private
-
-  # def user_session
-  #   @user_session ||= UserSession.new(session)
-  # end
-  # helper_method :user_session
-
 end

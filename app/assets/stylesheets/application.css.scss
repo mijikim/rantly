@@ -335,6 +335,12 @@ a {
   @extend #links;
 }
 
+#favorite_count {
+  padding-right: 4rem;
+  display: block;
+  text-align: right;
+}
+
 .dashboard-rants {
   @extend .content;
   #rant, ul {
@@ -447,6 +453,9 @@ a {
     margin: auto;
     #title {
       font-size: 20px;
+    }
+    #favorite_count {
+      margin: 16px 0;
     }
   }
 }

@@ -12,7 +12,7 @@ module RantHelper
       if current_user.favorited?(rant_id)
         link_to "Unfavorite", user_rant_favorite_path(user_id, rant_id), id: "favorite", method: :delete
       else
-        link_to "Favorite", user_rant_favorites_path(user_id, rant_id), id: "favorite", method: :post
+        link_to "Favorite" , user_rant_favorites_path(user_id, rant_id), id: "favorite", method: :post
       end
   end
 
