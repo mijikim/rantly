@@ -3,23 +3,16 @@ class SessionsController < ApplicationController
   layout "homepage"
 
   def new
-    @user = User.new
+    @session = Session.new(username: "", password: "")
   end
 
   def create
+    @session = Session.new(session_params)
 
-    @user = User.find_by(username: params[:user][:username])
-
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
+    if @session.valid?
+      set_session
       redirect_to dashboards_path
-    elsif params[:user][:username] == "" || params[:user][:password] == ""
-      @user = User.new(username: params[:user][:username])
-      @user.errors[:base] << "Username / Password Required"
-      render :new
     else
-      @user = User.new(username: params[:user][:username])
-      @user.errors[:base] << "Login Failed"
       render :new
     end
   end
@@ -27,6 +20,16 @@ class SessionsController < ApplicationController
   def destroy
     session.destroy
     redirect_to root_path
+  end
+
+  private
+
+  def session_params
+    params.require(:session).permit(:username, :password)
+  end
+
+  def set_session
+    session[:user_id] = @session.user_id
   end
 
 end

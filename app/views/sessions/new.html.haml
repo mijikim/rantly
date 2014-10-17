@@ -1,10 +1,10 @@
 .wrapper
  %section.clearfix
-  - if @user.errors.any?
+  - if @session.errors.any?
    .errors
-    - @user.errors.full_messages.each do |message|
+    - @session.errors.full_messages.each do |message|
      %li #{message}
-  = form_for @user, url: session_path, html: { class: "login-form" } do |f|
+  = form_for @session, url: session_path, html: { class: "login-form" } do |f|
    %h3 Login
    .login-form-column#username
     = f.label :username

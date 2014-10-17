@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do

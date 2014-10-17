@@ -37,8 +37,6 @@ class User < ActiveRecord::Base
     favorited_rants.order(created_at: :desc).pluck(:rant_id).map { |id| Rant.find(id) }
   end
 
-  Rant.order(created_at: :desc)
-
   def favorite_rant(rant_id)
     favorited_rants.build(rant_id: rant_id).save
   end

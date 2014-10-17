@@ -4,6 +4,8 @@
       .homepage-content
         %h1 Rantly
         %p Let it all out
+- if session[:visiting_status] == "no"
+  %p#notice Welcome back! Please register to begin your ranting!
 .wrapper
   %section.clearfix
     .homepage-quote
