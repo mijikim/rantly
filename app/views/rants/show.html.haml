@@ -7,4 +7,6 @@
     .single_rant_body
       = image_tag @rant.user.avatar.url(:medium)
       = link_to "by #{@rant.user.first_name}", user_path(@rant.user_id), id: "name"
+      = button_to "TWEET", user_rant_path, id: "tweet"
+      = button_to "SPAM", user_rant_path, method: :patch, value: true, id: "spam"
       %p #{@rant.rant}

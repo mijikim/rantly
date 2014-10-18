@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
 
   def show
     @new_rant = Rant.new
-    @all_rants = Rant.order(created_at: :desc)
+    @all_rants = Rant.order(created_at: :desc).where(spam: false)
   end
 
 end

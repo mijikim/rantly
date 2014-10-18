@@ -6,9 +6,16 @@ class RantsController < ApplicationController
     if @new_rant.save
       redirect_to dashboards_path
     else
-      @all_rants = Rant.order(created_at: :desc)
+      @all_rants = Rant.order(created_at: :desc).where(spam: false)
       render 'dashboards/show'
     end
+  end
+
+  def update
+    @new_rant = Rant.new
+    @rant = rant
+    rant.update(spam: true)
+    redirect_to user_rant_path
   end
 
   def destroy
