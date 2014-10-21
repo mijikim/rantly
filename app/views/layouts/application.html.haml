@@ -25,6 +25,8 @@
     .dashboard-profile
       %section.clearfix
         .profile
+          - if flash[:notice]
+            .notice #{flash[:notice]}
           = image_tag current_user.avatar.url(:thumb), class: "profile-thumbnail"
           = link_to full_name(current_user), edit_user_path(current_user.id), id: "profile"
         - if @new_rant.errors.any?

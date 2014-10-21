@@ -1,7 +1,5 @@
 .wrapper
  %section.clearfix
-  - if flash[:notice]
-   .notice #{flash[:notice]}
   - if current_user.errors.any?
    .errors
     - current_user.errors.full_messages.each do |message|

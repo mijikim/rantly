@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:visiting_status] = "yes"
       flash[:notice] = "You have successfully registered"
-      redirect_to new_user_path
+      redirect_to root_path
     else
       render :new, layout: 'layouts/homepage'
     end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     if current_user.update(allowed_params)
       flash[:notice] = "Profile was updated successfully!"
-      redirect_to edit_user_path(current_user)
+      redirect_to dashboards_path(current_user)
     else
       render :edit
     end
