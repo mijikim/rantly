@@ -8,4 +8,12 @@ module UserHelper
     end
   end
 
+  def profile_comments(user)
+    user.comments.where(commentable_type: "User")
+  end
+
+  def ordered_rants(user)
+    user.rants.order(favorited: :desc)
+  end
+
 end

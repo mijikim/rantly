@@ -34,8 +34,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @ordered_rants = @user.rants.order(favorited: :desc)
     @new_rant = Rant.new
+    @comment = Comment.new
   end
 
   private

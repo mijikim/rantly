@@ -27,6 +27,7 @@ class RantsController < ApplicationController
   def show
     @new_rant = Rant.new
     @rant = rant
+    @comment = Comment.new
   end
 
   private

@@ -16,4 +16,8 @@ module RantHelper
       end
   end
 
+  def rant_comments(rant)
+    rant.comments.where(commentable_type: "Rant")
+  end
+
 end

@@ -7,9 +7,19 @@
       = image_tag @user.avatar.url(:medium)
       %p#rant_frequency #{@user.rant_frequency.delete("?")} Ranter
       %p#bio #{@user.bio}
+      - if profile_comments(@user) != nil
+        - profile_comments(@user).each do |comment|
+          .comments
+            = image_tag comment.user.avatar.url(:thumb)
+            %ul #{comment.comment}
+      .comment_form
+        = form_for @comment, url: "/users/#{@user.id}/profile_comments" do |f|
+          = f.text_field :comment
+          .profile_button
+            = f.submit "COMMENT", class: "comment-profile-button"
     .single_user_rants
-      - if @ordered_rants != nil
-        - @ordered_rants.each do |rant|
+      - if ordered_rants(@user) != nil
+        - ordered_rants(@user).each do |rant|
           %p#title #{rant.category.titleize}
           %p #{rant.rant}
           = favorite_rant_link(current_user.id, rant.id)

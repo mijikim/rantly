@@ -431,6 +431,31 @@ a {
     #spam {
       background-color: red;
     }
+    hr {
+      width: 30%;
+    }
+    .comments {
+      display: inline-block;
+      width: 100%;
+      ul {
+        margin-bottom: 8px;
+        font-size: 15px;
+        display: block;
+      }
+      img {
+        display: block;
+      }
+    }
+  }
+  .comment_form {
+      #comment_comment {
+        width: 100%;
+        margin: 10px auto;
+      }
+    .rant-back-button {
+      @extend .button;
+      float: right;
+    }
   }
 }
 
@@ -460,6 +485,36 @@ a {
     img {
       vertical-align: middle;
     }
+    .comments {
+      display: inline-block;
+      width: 100%;
+      ul {
+        margin-bottom: 8px;
+        font-size: 15px;
+        display: block;
+      }
+      img {
+        display: block;
+        float: left;
+        padding: 1rem;
+        margin: 0;
+      }
+    }
+    .comment_form {
+      #comment_comment {
+        width: 100%;
+        margin: 10px auto;
+      }
+      .profile_button {
+        width: 100%;
+        display: block;
+        margin-bottom: 50px;
+        .comment-profile-button {
+          @extend .button;
+          float: right;
+        }
+      }
+    }
   }
   .single_user_rants {
     width: 95%;
@@ -473,6 +528,8 @@ a {
   }
 }
 
+
 .favorited-rants {
   @extend .dashboard-rants;
 }
+

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :rants, dependent: :destroy
   has_many :favorited_rants, dependent: :destroy
+  has_many :comments, as: :commentable
 
   has_many :followed_user_relationships, foreign_key: :follower_id, class_name: 'UserRelationship'
   has_many :followed_users, through: :followed_user_relationships

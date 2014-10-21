@@ -6,7 +6,18 @@
     %hr
     .single_rant_body
       = image_tag @rant.user.avatar.url(:medium)
-      = link_to "by #{@rant.user.first_name}", user_path(@rant.user_id), id: "name"
+      = link_to "by #{@rant.user.first_name}", user_path(@rant.user), id: "name"
       = button_to "TWEET", user_rant_path, id: "tweet"
       = button_to "SPAM", user_rant_path, method: :patch, value: true, id: "spam"
       %p #{@rant.rant}
+      %hr
+      - if rant_comments(@rant) != nil
+        - rant_comments(@rant).each do |comment|
+          .comments
+            = image_tag comment.user.avatar.url(:thumb)
+            %ul #{comment.comment}
+      .comment_form
+        = form_for @comment, url: "/users/#{current_user.id}/rants/#{@rant.id}/rant_comments" do |f|
+          = f.text_field :comment
+          = f.submit "RANT BACK", class: "rant-back-button"
+
