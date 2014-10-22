@@ -1,0 +1,34 @@
+.register-form-column.bottom#username
+ = f.label :username
+ = f.text_field :username
+.register-form-column.bottom#password
+ = f.label :password
+ = f.password_field :password
+.register-form-column#first_name
+ = f.label :first_name, "First name"
+ = f.text_field :first_name
+.register-form-column#last_name
+ = f.label :last_name, "Last name"
+ = f.text_field :last_name
+#bio
+ = f.label :bio
+ = f.text_area :bio
+#rant_frequency
+ %p How often do you rant?
+ .rant_column
+  = f.radio_button :rant_frequency, "Daily"
+  = f.label :rant_frequency_daily, "Daily"
+ .rant_column
+  = f.radio_button :rant_frequency, "Weekly"
+  = f.label :rant_frequency_weekly, "Weekly"
+ .rant_column
+  = f.radio_button :rant_frequency, "Monthly?"
+  = f.label :rant_frequency_monthly, "Monthly"
+#photo
+ = f.label :avatar, "Avatar"
+ = f.file_field :avatar
+#register
+- if params[:id]
+ = f.submit "EDIT", class: "edit-button"
+- else
+ = f.submit "REGISTER", class: "register-button"

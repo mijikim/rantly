@@ -8,6 +8,8 @@ class Rant < ActiveRecord::Base
   validates :rant, length: { minimum: 140 }
   validates :category, length:  { maximum: 50}
 
+  default_scope { where(spam: false)}
+
   def user_first_name
     user.first_name.capitalize
   end
