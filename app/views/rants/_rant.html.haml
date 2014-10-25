@@ -4,8 +4,7 @@
     = image_tag rant.user.avatar.url(:thumb)
     - if rant.user != current_user
       = follow_link(rant.user.id)
-  #rant_div
-    = link_to truncate(rant.rant), user_rant_path(rant.user.id, rant.id), id: "rant"
+  = link_to truncate(rant.rant), user_rant_path(rant.user.id, rant.id), id: "rant"
   - if rant.user != current_user
     = favorite_rant_link(current_user.id, rant.id)
     %p#favorite_count Number of favorites - #{rant.favorited}

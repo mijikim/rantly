@@ -3,10 +3,13 @@ class HomepageController < ApplicationController
   layout "homepage"
 
   def show
+    if current_user
+      redirect_to dashboards_path
+    else
+      render :show
+      session[:visiting_status] ||= "no"
+    end
 
-    render :show
-
-    session[:visiting_status] ||= "no"
   end
 
 end
