@@ -1,7 +1,8 @@
 .single_user
   %section.clearfix
     %h1 #{full_name(@user)}
-    = follow_link(@user.id)
+    - if current_user != @user
+      = follow_link(@user.id)
     %hr
     .single_user_body
       = image_tag @user.avatar.url(:medium)

@@ -14,4 +14,12 @@ class Rant < ActiveRecord::Base
     user.first_name.capitalize
   end
 
+  def self.search_mentioned(username)
+    where("rant ILIKE ?",  "%@#{username}%")
+  end
+
+  def self.latest_rants(id)
+    order(created_at: :desc).where("user_id != #{id}")
+  end
+
 end
