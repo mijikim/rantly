@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     if current_user.update(allowed_params)
       flash[:notice] = "Profile was updated successfully!"
-      redirect_to dashboards_path(current_user)
+      redirect_to dashboards_path
     else
       flash[:notice] = "Please fill out all the fields"
       render :edit
