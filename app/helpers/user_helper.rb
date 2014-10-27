@@ -16,4 +16,8 @@ module UserHelper
     user.rants.order(favorited: :desc)
   end
 
+  def full_name(user)
+    [user.first_name, user.last_name].join(" ").titleize
+  end
+
 end
