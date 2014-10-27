@@ -8,7 +8,7 @@ class FavoritedRantsController < ApplicationController
   def create
     current_user.favorite_rant(params[:rant_id])
     increment_favorited
-    redirect_to dashboards_path
+    redirect_to user_favorites_path
   end
 
   def destroy

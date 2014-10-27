@@ -1,9 +1,7 @@
 .wrapper
  %section.clearfix
-  - if current_user.errors.any?
-   .errors
-    - current_user.errors.full_messages.each do |message|
-     %li #{message}
+  - if flash[:notice]
+   .errors #{flash[:notice]}
   = form_for current_user, url: user_path, html: { class: "register-form" } do |f|
    %h3 Edit Profile
    = render partial: 'users/form', locals: {f:f}

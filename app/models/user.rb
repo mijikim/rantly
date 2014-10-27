@@ -46,4 +46,17 @@ class User < ActiveRecord::Base
     favorited_rants.pluck(:rant_id).include?(rant_id)
   end
 
+  def self.search(search_term)
+    joins(:rants).where(
+      'username ILIKE ? OR first_name ILIKE ?' +
+        'OR last_name ILIKE ? OR rants.rant ILIKE ?' +
+        'OR rants.category ILIKE ?',
+      search_term,
+      search_term,
+      search_term,
+      "%#{search_term}%",
+      "%#{search_term}%"
+    )
+  end
+
 end

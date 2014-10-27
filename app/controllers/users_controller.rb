@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :ensure_authenticated_user
+  skip_before_filter :ensure_authenticated_user, only: [:new, :create]
   layout "user_edit", only: [:edit, :update]
 
   def new
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile was updated successfully!"
       redirect_to dashboards_path(current_user)
     else
+      flash[:notice] = "Please fill out all the fields"
       render :edit
     end
   end

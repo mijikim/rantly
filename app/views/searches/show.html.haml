@@ -1,0 +1,9 @@
+.search_page
+  %section.clearfix
+    %h1 Search Results
+    %hr
+    = render partial: 'searches/form'
+    .search_results
+      - if @users != nil
+        - @users.each do |user|
+          = render user.rants

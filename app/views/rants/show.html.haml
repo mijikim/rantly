@@ -12,10 +12,7 @@
       %p #{@rant.rant}
       %hr
       - if rant_comments(@rant) != nil
-        - rant_comments(@rant).each do |comment|
-          .comments
-            = image_tag comment.user.avatar.url(:thumb)
-            %ul #{comment.comment}
+        = render rant_comments(@rant)
       .comment_form
         = form_for @comment, url: "/users/#{current_user.id}/rants/#{@rant.id}/rant_comments" do |f|
           = f.text_field :comment

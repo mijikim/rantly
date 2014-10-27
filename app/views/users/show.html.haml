@@ -8,10 +8,7 @@
       %p#rant_frequency #{@user.rant_frequency.delete("?")} Ranter
       %p#bio #{@user.bio}
       - if profile_comments(@user) != nil
-        - profile_comments(@user).each do |comment|
-          .comments
-            = image_tag comment.user.avatar.url(:thumb)
-            %ul #{comment.comment}
+        = render profile_comments(@user)
       .comment_form
         = form_for @comment, url: "/users/#{@user.id}/profile_comments" do |f|
           = f.text_field :comment

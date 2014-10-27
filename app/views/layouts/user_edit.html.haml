@@ -19,7 +19,7 @@
             %li
               = link_to "Favorites", user_favorites_path(current_user), class: "nav-list"
             %li
-              = link_to "Search", session_path, class: "nav-list"
+              = link_to "Search", new_search_path, class: "nav-list"
             %li
               = link_to "LOGOUT", session_path, class: "logout-button", method: :delete
     = yield
