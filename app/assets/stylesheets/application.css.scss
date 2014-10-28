@@ -342,15 +342,21 @@ a {
   text-align: right;
 }
 
-.dashboard-rants {
-  @extend .content;
-  #rant {
+#single_rant {
+  #rant_body {
     display: inline-block;
     width: 80%;
     padding: 0px 40px;
     color: black;
     margin: 16px 0;
-    word-wrap: break-word;
+    #rant, #hashtag {
+      display: inline;
+      word-wrap: break-word;
+      color: black;
+    }
+    #hashtag {
+      color: blue;
+    }
   }
   #profile {
     display: inline-block;
@@ -368,6 +374,13 @@ a {
   }
   #rants {
     width: 30%;
+  }
+}
+
+.dashboard-rants {
+  @extend .content;
+  .rants {
+    @extend #single_rant;
   }
 }
 
@@ -418,9 +431,6 @@ a {
       margin-right: 20px;
       color: white;
     }
-    #tweet {
-      background-color: blue;
-    }
     #spam {
       background-color: red;
     }
@@ -462,9 +472,6 @@ a {
   }
   img, p {
     margin: 1rem;
-  }
-  #follow {
-    @extend #links;
   }
   .single_user_body {
     width: 95%;
@@ -544,30 +551,15 @@ a {
     }
   }
   .search_results {
-    #rant {
-      display: inline-block;
-      width: 80%;
-      padding: 0px 40px;
-      color: black;
-      margin: 16px 0;
-      word-wrap: break-word;
+    .rants {
+      @extend #single_rant;
     }
-    #profile {
-      display: inline-block;
-      padding-left: 70px;
-      margin-bottom: 10px;
-      vertical-align: top;
-      img, a {
-        vertical-align: middle;
-        display: block;
-        text-align: center;
-      }
-    }
-    hr {
-      width: 95%;
-    }
-    #rants {
-      width: 30%;
-    }
+  }
+}
+
+.hashtags {
+  @extend .content;
+  .rants {
+    @extend #single_rant;
   }
 }

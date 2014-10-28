@@ -22,4 +22,8 @@ class Rant < ActiveRecord::Base
     order(created_at: :desc).where("user_id != #{id}")
   end
 
+  def self.search_hashtag(term)
+    where("rant ILIKE ?", "%#{term}%")
+  end
+
 end

@@ -8,6 +8,10 @@ module RantHelper
     end
   end
 
+  def hashtagable(text)
+    link_hashtags(strip_tags(text)).html_safe
+  end
+
   def favorite_rant_link(user_id, rant_id)
       if current_user.favorited?(rant_id)
         link_to "Unfavorite", user_rant_favorite_path(user_id, rant_id), id: "favorite", method: :delete
@@ -18,6 +22,10 @@ module RantHelper
 
   def rant_comments(rant)
     rant.comments.where(commentable_type: "Rant")
+  end
+
+  def link_hashtags(text)
+    text.gsub(/#\w+/) { |match| link_to match, hashtag_path(match[1..-1]), id: "hashtag" }
   end
 
 end

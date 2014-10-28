@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :dashboards, only: [:show]
   resource :session, only: [:new, :create, :destroy]
   resource :search, only: [:show, :new]
+  resources :hashtags, only: [:show]
 
   resources :users do
     post 'follows' => 'user_relationships#create'
