@@ -473,6 +473,9 @@ a {
   img, p {
     margin: 1rem;
   }
+  #follow {
+    @extend #links;
+  }
   .single_user_body {
     width: 95%;
     margin: auto;
