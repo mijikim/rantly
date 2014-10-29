@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
+  attr_accessor :activation_token
+
   has_secure_password
+
   has_many :rants, dependent: :destroy
   has_many :favorited_rants, dependent: :destroy
   has_many :comments, as: :commentable
@@ -15,8 +18,9 @@ class User < ActiveRecord::Base
 
   validates_attachment :avatar, presence: true, :content_type => {:content_type => ["image/jpeg", "image/gif", "image/png"]}
 
-  validates_presence_of :username, :bio, :rant_frequency
+  validates_presence_of :username, :bio, :rant_frequency, :email
   validates_uniqueness_of :username
+  validates :email, email: true
   validates :password, length: {in: 8..15}
   validates :first_name, :last_name, length: {minimum: 2}
   validates :bio, length: {maximum: 400,
@@ -57,6 +61,23 @@ class User < ActiveRecord::Base
       "%#{search_term}%",
       "%#{search_term}%"
     )
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+      BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  private
+
+  def create_activation_digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 
 end

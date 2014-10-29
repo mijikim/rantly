@@ -56,3 +56,4 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'aws-sdk'
 gem "thin"
+gem "redcarpet"

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(allowed_params)
 
     if @user.save
+      UserMailer.confirmation_email(@user).deliver
       session[:visiting_status] = "yes"
       flash[:notice] = "You have successfully registered"
       redirect_to root_path
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   private
 
   def allowed_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :rant_frequency, :avatar)
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :email, :bio, :rant_frequency, :avatar)
   end
 
 end

@@ -10,6 +10,9 @@
 .register-form-column#last_name
  = f.label :last_name, "Last name"
  = f.text_field :last_name
+#email
+ = f.label :email 
+ = email_field(:user, :email)
 #bio
  = f.label :bio
  = f.text_area :bio

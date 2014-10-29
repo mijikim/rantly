@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+  %body
+    %h1 Welcome to Rantly, #{@user.username}
+    %p
+      Thanks for signing up for Rantly!
+      Please activate your account using below link:
+    = link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email)
+
+      And then you will be able to log in:
+    = link_to @url
+    %br
+      Thanks,
+    %br
+      Rantly
