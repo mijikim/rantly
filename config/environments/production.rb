@@ -80,8 +80,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :smtp
 
   config.paperclip_defaults = {
     :storage => :s3,
@@ -91,4 +89,10 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  host = 'frozen-atoll-7546.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
+
 end
