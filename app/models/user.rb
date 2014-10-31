@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :activation_token
+  before_create :create_activation_digest
 
   has_secure_password
 
