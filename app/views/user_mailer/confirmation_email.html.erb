@@ -8,11 +8,8 @@
 <p>
   Thanks for signing up for Rantly!
   Please activate your account using below link:
- <%= link_to "Activate", url_for(host: @url, controller: 'account_activations', action: 'edit', params: {token: @user.activation_token, email: @user.email}) %>
+ <%= link_to "Activate", account_activiations_edit_url(token: @user.activation_token, email: @user.email) %>
 <br>
-</p>
-<p>
-  After, just follow this link to log in: <%= @session %>.
 </p>
 <p>Thanks for joining and have a great day!</p>
 </body>

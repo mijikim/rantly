@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<p>
+  <%= @rant.user.username.capitalize %> has posted a new rant.
+
+  <%= link_to "Check it out here", user_rant_url(@rant.user.id, @rant.id) %>
+</p>
+</body>
+</html>

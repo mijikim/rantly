@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, presence: true, :content_type => {:content_type => ["image/jpeg", "image/gif", "image/png"]}
 
   validates_presence_of :username, :bio, :rant_frequency, :email
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, :email
   validates :email, email: true
   validates :password, length: {in: 8..15}
   validates :first_name, :last_name, length: {minimum: 2}

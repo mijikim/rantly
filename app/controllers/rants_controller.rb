@@ -4,6 +4,10 @@ class RantsController < ApplicationController
     @new_rant = Rant.new(allowed_params.merge(user_id: params[:user_id]))
 
     if @new_rant.save
+      followers = @new_rant.user.followers
+      followers.each do |follower|
+        UserMailer.new_rant_email(@new_rant, follower).deliver
+      end
       redirect_to dashboards_path
     else
       @all_rants = Rant.order(created_at: :desc).where("user_id != #{current_user.id}")

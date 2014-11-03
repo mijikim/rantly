@@ -8,7 +8,7 @@
     .my_rants
       %h1 My Rants
       - if current_user.rants != nil
-        = render current_user.rants
+        = render current_user.rants.order(created_at: :desc)
     .mentioned
       %h1 Mentioned
       - if @mentioned_rants != nil
