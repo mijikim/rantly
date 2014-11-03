@@ -10,8 +10,13 @@ class SessionsController < ApplicationController
     @session = Session.new(session_params)
 
     if @session.valid?
-      set_session
-      redirect_to dashboards_path
+      if @session.user_activated?
+        set_session
+        redirect_to dashboards_path
+      else
+        flash[:errors] = "Please activate your account"
+        redirect_to root_path
+      end
     else
       render :new
     end

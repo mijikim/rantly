@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.confirmation_email(@user).deliver
       session[:visiting_status] = "yes"
-      flash[:notice] = "You have successfully registered"
+      flash[:notice] = "Please check your email to activate your account"
       redirect_to root_path
     else
       render :new, layout: 'layouts/homepage'

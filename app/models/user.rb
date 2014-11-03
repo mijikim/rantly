@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessor :activation_token
-  before_create :create_activation_digest
+  # attr_accessor :activation_token
+  before_create :create_activation_token
 
   has_secure_password
 
   has_many :rants, dependent: :destroy
   has_many :favorited_rants, dependent: :destroy
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, as: :commentable
 
   has_many :followed_user_relationships, foreign_key: :follower_id, class_name: 'UserRelationship'
   has_many :followed_users, through: :followed_user_relationships
@@ -64,21 +64,18 @@ class User < ActiveRecord::Base
     )
   end
 
+  def authenticated?(token)
+    self.activation_token == token
+  end
+
   def self.new_token
     SecureRandom.urlsafe_base64
   end
 
-  def self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-      BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
-
   private
 
-  def create_activation_digest
+  def create_activation_token
     self.activation_token  = User.new_token
-    self.activation_digest = User.digest(activation_token)
   end
 
 end

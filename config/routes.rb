@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resource :search, only: [:show, :new]
   resources :hashtags, only: [:show]
-  resources :account_activations, only: [:edit]
+  # resources :account_activations, only: [:edit]
+  get '/account_activiations/edit', to: 'account_activations#edit'
 
   resources :users do
     post 'follows' => 'user_relationships#create'

@@ -21,6 +21,11 @@ class Session
     end
   end
 
+  def user_activated?
+    User.find_by(username: username).activated
+  end
+
+
   def user_id
     User.find_by(username: username).id
   end

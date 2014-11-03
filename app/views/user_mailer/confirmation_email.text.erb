@@ -3,8 +3,7 @@ Welcome to Rantly, <%= @user.username %>
 
 Thanks for signing up for Rantly!
 Please activate your account using below link:
-<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
-
+<%= url_for(host: @url, controller: 'account_activations', action: 'edit', params: {token: @user.activation_token, email: @user.email}) %>
 And then you will be able to log in:
 <%= @url %>
 
