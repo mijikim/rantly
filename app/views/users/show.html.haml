@@ -19,6 +19,6 @@
       - if ordered_rants(@user) != nil
         - ordered_rants(@user).each do |rant|
           %p#title #{rant.category.titleize}
-          %p #{rant.rant}
+          %p #{markdown(hashtagable(rant.rant))}
           = favorite_rant_link(current_user.id, rant.id)
           %p#favorite_count Number of favorites - #{rant.favorited}

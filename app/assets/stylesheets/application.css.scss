@@ -63,7 +63,7 @@ a {
   border-right: green 1px solid;
 }
 
-.navbar-logged-out, .navbar-logged-in {
+.navbar-logged-out, .navbar-logged-in, .navbar-admin {
   padding: 10px;
   a {
     color: white;
@@ -98,6 +98,24 @@ a {
   justify-content: flex-end;
   a {
     margin-left: 15px;
+  }
+}
+
+.navbar-admin {
+  .nav-admin {
+    @extend .top-nav;
+    .admin-nav-list {
+      @extend .nav-list;
+    }
+  }
+  .top-nav :nth-child(4) :nth-child(1) {
+    margin-right: 0px;
+  }
+  .nav-admin :nth-child(1) :nth-child(1) {
+    border: none;
+  }
+  .nav-admin :nth-child(3) :nth-child(1) {
+    margin-right: 400px;
   }
 }
 
@@ -334,6 +352,9 @@ a {
   h1 {
     text-align: center;
   }
+  hr {
+    width: 95%;
+  }
 }
 
 #links {
@@ -397,9 +418,6 @@ a {
 
 .followed-users {
   @extend .content;
-  hr {
-    width: 95%;
-  }
   .user {
     display: inline-block;
     width: 33%;
@@ -415,9 +433,6 @@ a {
 
 .single_rant {
   @extend .content;
-  hr {
-    width: 95%;
-  }
   .single_rant_body {
     width: 95%;
     margin: auto;
@@ -475,9 +490,6 @@ a {
 
 .single_user {
   @extend .content;
-  hr {
-    width: 95%;
-  }
   h1 {
     margin-bottom: 0;
   }
@@ -551,9 +563,6 @@ a {
 
 .search_page {
   @extend .content;
-  hr {
-    width: 95%;
-  }
   .search_form {
     margin: 2rem;
     text-align: center;
@@ -575,5 +584,34 @@ a {
   @extend .content;
   .rants {
     @extend #single_rant;
+  }
+}
+
+.table {
+  $light-gray: #efefef;
+  margin: auto;
+  width: 90%;
+  th {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  td, th {
+    padding: .5em;
+    border: 1px solid $light-gray;
+  }
+
+  tbody {
+    tr:nth-child(odd) td {
+      background: $light-gray;
+    }
+  }
+}
+
+.admin-content {
+  background-color: #ffffff;
+  min-height: 100%;
+  h1 {
+    text-align: center;
   }
 }

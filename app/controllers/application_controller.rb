@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user
   end
 
+  def ensure_admin
+    redirect_to root_path unless admin
+  end
+
+  def admin
+    User.where(admin: true)
+  end
 
   def current_user
     User.find_by(id: session[:user_id])

@@ -11,8 +11,13 @@ class SessionsController < ApplicationController
 
     if @session.valid?
       if @session.user_activated?
+        if @session.user_admin?
+        set_session
+        redirect_to admin_dashboard_path
+        else
         set_session
         redirect_to dashboards_path
+        end
       else
         flash[:errors] = "Please activate your account"
         redirect_to root_path

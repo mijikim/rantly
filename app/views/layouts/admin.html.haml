@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title Rantly
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %header
+      .navbar-admin
+        %section.clearfix
+          = link_to "Rant.ly", admin_dashboard_path, class: "header-word-logo"
+          %ul.nav-admin
+            %li
+              = link_to "Dashboard", admin_dashboard_path, class: "admin-nav-list"
+            %li
+              = link_to "Rants", admin_rant_path, class: "admin-nav-list"
+            %li
+              = link_to "Users", admin_user_path, class: "admin-nav-list"
+            %li
+              = link_to "LOGOUT", session_path, class: "logout-button", method: :delete
+    = yield

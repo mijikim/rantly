@@ -25,6 +25,9 @@ class Session
     User.find_by(username: username).activated
   end
 
+  def user_admin?
+    User.find_by(username: username).admin
+  end
 
   def user_id
     User.find_by(username: username).id

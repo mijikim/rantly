@@ -1,0 +1,18 @@
+.admin-content
+  %section.clearfix
+    %h1 Rants
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Title
+          %th Actions
+      %tbody
+        - @all_rants.each do |rant|
+          %tr
+            %td #{full_name(rant.user)}
+            %td #{rant.user.email}
+            %td #{rant.category}
+            %td
+              = link_to "View"
