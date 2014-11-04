@@ -3,7 +3,7 @@ class Admin::AdminRantsController < ApplicationController
   layout "admin"
 
   def index
-    @all_rants = Rant.all
+    @all_rants = Rant.all.order(created_at: :desc)
   end
 
 end
