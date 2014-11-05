@@ -1,0 +1,19 @@
+.admin-content
+  %section.clearfix
+    %h1 Users
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Number of Rants
+          %th Disabled
+          %th Actions
+      %tbody
+        - @all_users.each do |user|
+          %tr
+            %td #{full_name(user)}
+            %td #{user.email}
+            %td #{user.rants.count}
+            %td
+            %td

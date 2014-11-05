@@ -4,6 +4,9 @@ class Admin::AdminRantsController < ApplicationController
 
   def index
     @all_rants = Rant.all.order(created_at: :desc)
+    if params[:kind]
+      @all_rants = Rant.unscoped { Rant.where(spam: true) }
+    end
   end
 
 end

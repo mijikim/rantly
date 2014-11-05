@@ -19,7 +19,7 @@ class RantsController < ApplicationController
     @new_rant = Rant.new
     @rant = rant
     rant.update(spam: true)
-    redirect_to user_rant_path
+    redirect_to dashboards_path
   end
 
   def destroy
