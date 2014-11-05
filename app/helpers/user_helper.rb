@@ -20,4 +20,12 @@ module UserHelper
     [user.first_name, user.last_name].join(" ").titleize
   end
 
+  def disable_link(user)
+    if user.disabled
+      link_to "Enable", admin_user_path(user, value: false), method: :patch
+    else
+      link_to "Disable", admin_user_path(user, value: true), method: :patch
+    end
+  end
+
 end

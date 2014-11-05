@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :bio, :rant_frequency, :email
   validates_uniqueness_of :username, :email
   validates :email, email: true
-  validates :password, length: {in: 8..15}
+  validates :password, length: {in: 8..15}, on: :create
   validates :first_name, :last_name, length: {minimum: 2}
   validates :bio, length: {maximum: 400,
                            too_long: "%{count} characters is the maximum allowed"}

@@ -9,21 +9,26 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new(session_params)
 
-    if @session.valid?
-      if @session.user_activated?
-        if @session.user_admin?
-        set_session
-        redirect_to admin_dashboard_path
+    if @session.user_disabled?
+      flash[:errors] = "Your account has been disabled"
+      render :new
+    else
+      if @session.valid?
+        if @session.user_activated?
+          if @session.user_admin?
+            set_session
+            redirect_to admin_dashboard_path
+          else
+            set_session
+            redirect_to dashboards_path
+          end
         else
-        set_session
-        redirect_to dashboards_path
+          flash[:errors] = "Please activate your account"
+          render :new
         end
       else
-        flash[:errors] = "Please activate your account"
-        redirect_to root_path
+        render :new
       end
-    else
-      render :new
     end
   end
 

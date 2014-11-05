@@ -11,8 +11,13 @@
  * file per style scope.
  *
  *= require normalize
+ *= require font-awesome
  *= require_self
  */
+
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /* ----- =structure ----- */
 
@@ -613,6 +618,9 @@ a {
   min-height: 100%;
   h1 {
     text-align: center;
+  }
+  a {
+    text-decoration: underline;
   }
 }
 

@@ -16,4 +16,9 @@
             %td #{user.email}
             %td #{user.rants.count}
             %td
+              - if user.disabled
+                %i.fa.fa-check
             %td
+              = disable_link(user)
+              = link_to "Impersonate"
+

@@ -4,6 +4,9 @@
    .errors
     - @session.errors.full_messages.each do |message|
      %li #{message}
+  - if flash[:errors]
+   .errors
+    %li #{flash[:errors]}
   = form_for @session, url: session_path, html: { class: "login-form" } do |f|
    %h3 Login
    .login-form-column#username
