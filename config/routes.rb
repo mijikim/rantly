@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resource :search, only: [:show, :new]
   resources :hashtags, only: [:show]
   get '/account_activiations/edit', to: 'account_activations#edit'
+  delete 'impersonate' => 'impersonate#destroy'
 
   resources :users do
     post 'follows' => 'user_relationships#create'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     delete 'follow' => 'user_relationships#destroy'
     get 'favorites' => 'favorited_rants#index'
     post 'profile_comments' => 'comments#create'
+    resources :impersonate, only: [:new]
     resources :rants do
       post 'rant_comments' => 'comments#create'
       post 'favorites' => 'favorited_rants#create'
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
     get 'dashboard' => 'admin_dashboards#index'
     resources :rants, only: [:index, :update, :show, :destroy]
     resources :users, only: [:index, :update]
+
   end
 
 end
