@@ -28,4 +28,8 @@ module UserHelper
     end
   end
 
+  def sort_by_arrow
+    link_to '<i class="fa fa-arrow-up"></i>'.html_safe, admin_users_path(order: "desc"), id: "arrow"
+  end
+
 end

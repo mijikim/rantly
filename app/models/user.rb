@@ -64,6 +64,14 @@ class User < ActiveRecord::Base
     )
   end
 
+  def self.sort_user_by_rants_count_desc
+    all.sort_by {|user| user.rants.count }.reverse
+  end
+  #
+  # def self.sort_user_by_rants_count_asc
+  #   all.sort_by {|user| user.rants.count }
+  # end
+
   def authenticated?(token)
     self.activation_token == token
   end

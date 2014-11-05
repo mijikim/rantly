@@ -15,7 +15,7 @@ class Rant < ActiveRecord::Base
   end
 
   def self.search_mentioned(username)
-    where("rant LIKE ? AND SPAM <> true",  "%@#{username}%")
+    where("rant LIKE ?",  "%@#{username}%")
   end
 
   def self.latest_rants(id)

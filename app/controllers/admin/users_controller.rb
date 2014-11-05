@@ -4,6 +4,9 @@ class Admin::UsersController < ApplicationController
 
   def index
     @all_users = User.all
+    if params[:order] == "desc"
+    @all_users = User.sort_user_by_rants_count_desc
+    end
   end
 
   def update
