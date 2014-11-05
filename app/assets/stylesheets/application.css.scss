@@ -643,6 +643,39 @@ a {
   }
 }
 
+#action {
+  width: 15%;
+}
+
 #arrow {
   float: right;
+}
+
+.admin_single_rant {
+  background-color: #ffffff;
+  min-height: 100%;
+  h1 {
+    text-align: center;
+  }
+  hr {
+    width: 95%;
+  }
+  .single_rant_body {
+    width: 95%;
+    margin: auto;
+    img {
+      float: left;
+      padding: 1rem;
+    }
+    p {
+      padding: 1rem;
+      margin: 0;
+      word-wrap: break-word;
+    }
+    #name {
+      font-size: 30px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+  }
 }

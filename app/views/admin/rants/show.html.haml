@@ -1,0 +1,9 @@
+.admin_single_rant
+  %section.clearfix
+    %h1 #{hashtagable(markdown(@rant.category.titleize))}
+    %p#favorite_count Number of favorites - #{@rant.favorited}
+    %hr
+    .single_rant_body
+      = image_tag @rant.user.avatar.url(:medium)
+      = link_to "by #{@rant.user.first_name}", user_path(@rant.user), id: "name"
+      %p #{markdown(hashtagable(@rant.rant))}

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard' => 'admin_dashboards#index'
-    get 'rant' => 'admin_rants#index'
+    resources :rants, only: [:index, :update, :show, :destroy]
     resources :users, only: [:index, :update]
   end
 

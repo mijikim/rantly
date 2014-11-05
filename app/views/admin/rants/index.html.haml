@@ -1,0 +1,25 @@
+.admin-content
+  %section.clearfix
+    %h1 Rants
+    .rants-navbar
+      = link_to "All", admin_rants_path, id: "all-rant-button"
+      = link_to "Spam", admin_rants_path(kind: "spam"), id: "spam-rant-button", method: :get
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Title
+          %th#action Actions
+      %tbody
+        - if @all_rants != nil
+          - @all_rants.each do |rant|
+            %tr
+              %td #{full_name(rant.user)}
+              %td #{rant.user.email}
+              %td #{rant.category}
+              %td#action
+                = link_to "View", admin_rant_path(rant)
+                - if params[:kind]
+                  = link_to "Delete", admin_rant_path(rant), method: :delete
+                  = link_to "Not a spam", admin_rant_path(rant), method: :patch
