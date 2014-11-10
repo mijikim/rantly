@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require highcharts
+//= require highcharts/highcharts-more
+//= require chartkick
 //= require_tree .
+
+
+$(document).ready(function () {
+
+});

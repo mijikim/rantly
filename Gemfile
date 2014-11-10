@@ -26,7 +26,7 @@ gem 'spring',        group: :development
 
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara'
   gem 'pry-rails'
   gem 'pry-byebug'
@@ -58,3 +58,7 @@ gem 'aws-sdk'
 gem "thin"
 gem "redcarpet"
 gem 'font-awesome-sass'
+gem "chartkick"
+gem 'groupdate'
+gem 'keen'
+gem "highcharts-rails", "~> 3.0.0"

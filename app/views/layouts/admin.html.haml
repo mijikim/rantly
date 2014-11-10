@@ -3,6 +3,7 @@
   %head
     %title Rantly
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
@@ -21,3 +22,4 @@
             %li
               = link_to "LOGOUT", session_path, class: "logout-button", method: :delete
     = yield
+    = yield :charts_js

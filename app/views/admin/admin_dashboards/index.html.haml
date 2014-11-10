@@ -1,0 +1,9 @@
+.dashboard-admin
+  %section.clearfix
+    .rants
+      %h2 Rants per day
+      = column_chart Rant.group_by_day(:created_at, format: "%F").count
+    .signups
+      %h2 Signups per day
+      = column_chart User.group_by_day(:created_at, format: "%F").count
+

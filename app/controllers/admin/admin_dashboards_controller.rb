@@ -3,7 +3,6 @@ class Admin::AdminDashboardsController < ApplicationController
   layout "admin"
 
   def index
-
   end
 
 end

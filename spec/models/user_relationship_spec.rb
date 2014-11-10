@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe UserRelationship, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe UserRelationship  do
+
+  it "exists" do
+    expect(true).to eq(true)
+  end
+
 end
