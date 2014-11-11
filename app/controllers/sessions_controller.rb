@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
             set_session
             redirect_to admin_dashboard_path
           else
+            Keen.publish("logins", {username: @session.username})
             set_session
             redirect_to dashboards_path
           end
