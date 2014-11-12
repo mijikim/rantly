@@ -19,8 +19,8 @@ class SessionsController < ApplicationController
             set_session
             redirect_to admin_dashboard_path
           else
-            Keen.publish("logins", {username: @session.username})
             set_session
+            send_event_to_keen_io
             redirect_to dashboards_path
           end
         else
@@ -46,6 +46,14 @@ class SessionsController < ApplicationController
 
   def set_session
     session[:user_id] = @session.user_id
+  end
+
+  def send_event_to_keen_io
+    if Rails.env.development?
+      Keen.publish("logins", {username: @session.username})
+    elsif Rails.env.production?
+      Keen.publish("logins_production", {username: @session.username})
+    end
   end
 
 end
