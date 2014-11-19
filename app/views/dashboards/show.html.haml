@@ -6,7 +6,7 @@
       - if @all_rants != nil
         = render @all_rants
     .my_rants
-      %h1 My Rants
+      %h1#my_rants My Rants
       - if current_user.rants != nil
         = render current_user.rants.order(created_at: :desc)
     .mentioned

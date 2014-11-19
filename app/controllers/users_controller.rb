@@ -36,8 +36,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    build_user_hash
     @new_rant = Rant.new
     @comment = Comment.new
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @user_hash}
+    end
   end
 
   private
@@ -46,4 +52,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :first_name, :last_name, :email, :bio, :rant_frequency, :avatar)
   end
 
+  def build_user_hash
+    @user_hash = {}
+    @user_hash[:first_name] = @user.first_name.capitalize
+    @user_hash[:url] = @user.avatar.url(:thumb)
+  end
 end

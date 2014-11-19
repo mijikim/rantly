@@ -3,8 +3,9 @@
   %head
     %title Rantly
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %script
+      "https://d26b395fwzu5fz.cloudfront.net/3.1.0/keen.min.js" type="text/javascript"
     = csrf_meta_tags
 
   %body

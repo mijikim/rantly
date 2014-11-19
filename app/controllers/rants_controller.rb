@@ -8,10 +8,12 @@ class RantsController < ApplicationController
       followers.each do |follower|
         UserMailer.new_rant_email(@new_rant, follower).deliver
       end
-      redirect_to dashboards_path
+      # redirect_to dashboards_path
+      render json: @new_rant
     else
       @all_rants = Rant.order(created_at: :desc).where("user_id != #{current_user.id}")
-      render 'dashboards/show'
+      # render 'dashboards/show'
+      raise
     end
   end
 
