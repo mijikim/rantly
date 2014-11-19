@@ -1,0 +1,15 @@
+.date_filter
+  - if params[:kind]
+    = form_tag find_rant_path(kind: "spam"), method: :post do
+      %span From
+      = text_field_tag :start_date, params[:start_date], class: "datetimepicker"
+      %span To
+      = text_field_tag :end_date, params[:end_date], class: "datetimepicker"
+      = submit_tag "Filter", id: "date-button"
+  - else
+    = form_tag find_rant_path, method: :post do
+      %span From
+      = text_field_tag :start_date, params[:start_date], class: "datetimepicker"
+      %span To
+      = text_field_tag :end_date, params[:end_date], class: "datetimepicker"
+      = submit_tag "Filter", id: "date-button"

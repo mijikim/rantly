@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.datetimepicker
+//= require jquery.datetimepicker/init
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require chartkick
@@ -19,5 +21,11 @@
 
 
 $(document).ready(function () {
+
+  var dtpicker = function () {
+    $('.datetimepicker').datetimepicker();
+  };
+
+  dtpicker();
 
 });

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :hashtags, only: [:show]
   get '/account_activiations/edit', to: 'account_activations#edit'
   delete 'impersonate' => 'impersonate#destroy'
+  post 'find_rant' => 'admin/rants#find_rants'
 
   resources :users do
     post 'follows' => 'user_relationships#create'

@@ -4,6 +4,7 @@
     .rants-navbar
       = link_to "All", admin_rants_path, id: "all-rant-button"
       = link_to "Spam", admin_rants_path(kind: "spam"), id: "spam-rant-button", method: :get
+      = render partial: 'admin/rants/date_filter'
     %table.table
       %thead
         %tr

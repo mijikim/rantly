@@ -62,5 +62,6 @@ gem "chartkick"
 gem 'groupdate'
 gem 'keen'
 gem "highcharts-rails", "~> 3.0.0"
+gem 'jquery-datetimepicker-rails'
 gem 'dotenv-rails'
 gem "faraday"

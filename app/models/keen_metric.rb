@@ -37,7 +37,7 @@ class KeenMetric
     logged_hours.flatten.compact.each do |hour|
       @time[hour] += 1
     end
-    
+
     @time
 
   end
