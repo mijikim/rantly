@@ -19,13 +19,12 @@ class KeenMetric
   def self.find_logins_per_hour
     response = keen_io_url
 
-    p "*"*40
     dates = JSON.parse(response.body)["result"]
 
     logged_hours = dates.map { |record|
       a = record["value"].map do |data|
         if data["result"] > 0
-          p data["keen.created_at"][11..12]
+          data["keen.created_at"][11..12]
         end
       end
       a }
@@ -38,7 +37,7 @@ class KeenMetric
     logged_hours.flatten.compact.each do |hour|
       @time[hour] += 1
     end
-
+    
     @time
 
   end
