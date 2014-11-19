@@ -6,20 +6,7 @@
     .signups
       %h2 Signups per day
       = column_chart User.group_by_day(:created_at, format: "%F").count
-:javascript
-  var client = new Keen({
-    projectId: "546052573831445dc0f141b6",
-    readKey: "74f1d8f1da3fff07cf3f2dcb09c244cca3a1a7fc2ba37931e56cea1f47a692a9f754c139177a51cae0bb415e33e8d1b1bf866f82acce696ea463c6001b63cdcc1220a38dcd1cfe3e4f8390e2112401b614900fd9592951e1facd4665510d6ff5c3c887b69f8e547e6d816657e831c77e"
-  });
-  Keen.ready(function(){
-    var query = new Keen.Query("count", {
-      eventCollection: "logins",
-      timeframe: "previous_week",
-      interval: "hourly",
-      groupBy: "keen.created_at"
-    });
-    client.draw(query, document.getElementById("my_chart"), {
-      chartType: "columnchart",
-      title: "Logins per day"
-    });
-  });
+    .logins
+      %h2 Logins per hour
+      = column_chart @keen_list
+

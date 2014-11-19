@@ -3,6 +3,7 @@ class Admin::AdminDashboardsController < ApplicationController
   layout "admin"
 
   def index
+    @keen_list = KeenMetric.find_logins_per_hour
   end
 
 end
