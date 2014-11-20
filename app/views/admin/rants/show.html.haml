@@ -6,4 +6,6 @@
     .single_rant_body
       = image_tag @rant.user.avatar.url(:medium)
       = link_to "by #{@rant.user.first_name}", user_path(@rant.user), id: "name"
+      - unless @rant.spam
+        = button_to "SPAM", rants_path(rant_id: @rant.id), method: :patch, value: true, id: "spam"
       %p #{markdown(hashtagable(@rant.rant))}

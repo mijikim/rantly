@@ -19,6 +19,12 @@ class Admin::RantsController < ApplicationController
     redirect_to admin_rants_path
   end
 
+  def admin_rants_spam
+    @rant = Rant.find(params[:rant_id])
+    @rant.update(spam: true)
+    redirect_to admin_rants_path
+  end
+
   def destroy
     @rant = rant
     @rant.destroy

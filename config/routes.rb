@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   get '/account_activiations/edit', to: 'account_activations#edit'
   delete 'impersonate' => 'impersonate#destroy'
   post 'find_rant' => 'admin/rants#find_rants'
+  patch 'rants' => 'admin/rants#admin_rants_spam'
 
   resources :users do
     post 'follows' => 'user_relationships#create'
     get 'follows' => 'user_relationships#index'
-    delete 'follow' => 'user_relationships#destroy'
+    delete 'follows' => 'user_relationships#destroy'
     get 'favorites' => 'favorited_rants#index'
     post 'profile_comments' => 'comments#create'
     resources :impersonate, only: [:new]
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
     get 'dashboard' => 'admin_dashboards#index'
     resources :rants, only: [:index, :update, :show, :destroy]
     resources :users, only: [:index, :update]
-
   end
 
 end

@@ -50,6 +50,5 @@ var JSONdata = function () {
 };
 
 $(document).ready(function () {
-
-  postRant()
+  postRant();
 });

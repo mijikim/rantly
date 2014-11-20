@@ -14,9 +14,9 @@ module RantHelper
 
   def favorite_rant_link(user_id, rant_id)
       if current_user.favorited?(rant_id)
-        link_to "Unfavorite", user_rant_favorite_path(user_id, rant_id), id: "favorite", method: :delete
+        link_to "Unfavorite", user_rant_favorite_path(user_id, rant_id), class: "unfavorite-#{rant_id}", id: "#{rant_id}", data: { user: user_id, rant: rant_id }
       else
-        link_to "Favorite" , user_rant_favorites_path(user_id, rant_id), id: "favorite", method: :post
+        link_to "Favorite" , user_rant_favorites_path(user_id, rant_id), class: "favorite-#{rant_id}", id: "#{rant_id}", data: { user: user_id, rant: rant_id }
       end
   end
 

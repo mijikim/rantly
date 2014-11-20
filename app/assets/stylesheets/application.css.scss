@@ -16,7 +16,6 @@
  *= require_self
  */
 
-
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -681,6 +680,10 @@ a {
       font-size: 30px;
       display: inline-block;
       margin-top: 20px;
+    }
+    #spam {
+      background-color: red;
+      float: right;
     }
   }
 }

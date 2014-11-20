@@ -8,14 +8,20 @@ class FavoritedRantsController < ApplicationController
   def create
     current_user.favorite_rant(params[:rant_id])
     increment_favorited
-    redirect_to user_favorites_path
+    message = {
+      "msg" => "Success"
+    }
+    render :json => message
   end
 
   def destroy
     @favorite_rant = find_favorite_rant
     @favorite_rant.destroy
     decrement_favorited
-    redirect_to dashboards_path
+    message = {
+      "msg" => "Success"
+    }
+    render :json => message
   end
 
 

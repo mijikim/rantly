@@ -7,12 +7,14 @@ class UserRelationshipsController < ApplicationController
 
   def create
     current_user.follow_user(user)
-    redirect_to dashboards_path
+    # redirect_to dashboards_path
+    render nothing: true
   end
 
   def destroy
     current_user.unfollow_user(user)
-    redirect_to dashboards_path
+    render nothing: true
+    # redirect_to dashboards_path
   end
 
   private
