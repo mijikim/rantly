@@ -373,11 +373,14 @@ a {
   @extend #links;
 }
 
-#favorite_count {
-  padding-right: 4rem;
-  display: block;
-  text-align: right;
-}
+//.favorite {
+//    float: right;
+////  display: block;
+//  #favorite_count {
+//    display: inline-block;
+//    text-align: right;
+//  }
+//}
 
 #single_rant {
   #rant_body {
@@ -418,6 +421,10 @@ a {
   @extend .content;
   .rants {
     @extend #single_rant;
+    a[class^='favorite'], a[class^='unfavorite'] {
+      display: block;
+      float: right;
+    }
   }
 }
 
